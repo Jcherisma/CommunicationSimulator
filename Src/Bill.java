@@ -16,5 +16,47 @@ package Src;
          Getter methods for limitingAmount and currentDebt
  */
 public class Bill {
+
+  double limitingAmount;
+  double currentDebt = 0;
+
+  public Bill(double limitingAmount ){
+    this.limitingAmount = limitingAmount;
+  }
     
+  public boolean checkIfExceedAmount(double amount){
+
+    if(amount > limitingAmount){
+      return false;
+    } else {
+    return true;
+    }
+  }
+
+  public void add(double amount){
+   currentDebt = currentDebt + amount;
+  }
+
+/*
+ * To Do:
+ */
+  public void pay(double amount){
+
+  }
+
+/*
+ * To Do:
+ */
+  public void changeTheLimit(double amount){
+
+
+  }
+
+  public double getLimitingAmount() {
+    return this.limitingAmount;
+  }
+
+  public double getCurrentDebt() {
+    return this.currentDebt;
+  }
 }

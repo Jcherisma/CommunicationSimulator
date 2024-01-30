@@ -25,5 +25,40 @@ package Src;
  */
 
 public class Customer {
-    
+    int id;
+    String name;
+    int age;
+    Operator operator;
+    Bill bill;
+
+    public Customer(int i, String n, int a,Operator op,double l){
+        this.id = i;
+        this.name =  n;
+        this.age = a;
+        this.operator = op;
+    }
+
+    public void talk(int minute, Customer name){
+
+    }
+
+    public void message(int amount, Customer name){
+            
+    }
+
+    public void connection(double amount){
+            
+    }
+
+    //Getter and setter methods for age,operator,and bill. Ex: getAge (), setAge(int
+    //age)
+    public void setAge(int age){
+
+        this.age = age;
+    }
+
+    public int getAge(int age){
+
+        return this.age;
+    }
 }

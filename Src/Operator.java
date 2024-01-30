@@ -19,5 +19,35 @@ package Src;
                 discountRate
  */
 public class Operator {
+    int id;
+    double talkingCharge;
+    double messageCost;
+    double networkCharge;
+    int discountRate;
+
+    public Operator(int id, double talkingCharge, double messageCost, double networkCharge, int discountRate){
+        this.id = id;
+        this.talkingCharge =  talkingCharge;
+        this.messageCost = messageCost;
+        this.networkCharge = networkCharge;
+        this.discountRate = discountRate;
+    }
     
+    double calculateTalkingCost(int min, Customer customer){
+        double cost = 0;
+
+        return cost;
+    }
+
+    double calculateMessageCost(int amount, Customer customer){
+        double cost = 0;
+
+        return cost;
+    }
+
+    double calculateNetworkCost(double amount){
+        double cost = 0;
+
+        return cost;
+    }
 }
