@@ -23,6 +23,8 @@ public class Main {
         int customerToUse;
         int operatorToUse;
         int eventsToUse;
+        Customer[] customers;
+        Operator[] operators;
         
         try{
             reader = new BufferedReader(new FileReader("/Users/jeffreycherisma/Desktop/Java Projects/CommunicationSimulator/Testcases/test1.txt"));
@@ -49,8 +51,6 @@ public class Main {
         customerToUse = getCustomerCount(stringArr);
         operatorToUse = getOperatorCount(stringArr);
         eventsToUse = getEventsCount(stringArr);
-
-       // ArrayList<Integer> intArr = getIntegerArray(stringArr);
         
         System.out.println("Customer in use" + customerToUse);
         System.out.println("Operator in use" + operatorToUse);

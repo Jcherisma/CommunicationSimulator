@@ -25,17 +25,28 @@ package Src;
  */
 
 public class Customer {
-    int id;
-    String name;
-    int age;
-    Operator operator;
-    Bill bill;
+    private int id;
+    private String name;
+    private int age;
+    private Operator operator;
+    private Bill bill;
+
+    private int totalSpentTalkingTime;
+
+    private int totalSentMessages;
+	
+	private double totalInternetUsage;
 
     public Customer(int i, String n, int a,Operator op,double l){
         this.id = i;
         this.name =  n;
-        this.age = a;
+        setAge(a);
         this.operator = op;
+        bill = new Bill(l);
+
+        totalSpentTalkingTime = 0;
+		totalSentMessages = 0;
+		totalInternetUsage = 0.0;
     }
 
     public void talk(int minute, Customer name){
@@ -53,12 +64,64 @@ public class Customer {
     //Getter and setter methods for age,operator,and bill. Ex: getAge (), setAge(int
     //age)
     public void setAge(int age){
-
-        this.age = age;
+        try {
+			if(age < 0)
+				throw new IllegalArgumentException("Age must be non-negative.");
+		
+			this.age = age;
+			
+		} catch(final IllegalArgumentException e) {
+			System.out.println(e.getMessage());
+		}
     }
 
-    public int getAge(int age){
+    public int getAge(){
 
-        return this.age;
+        return age;
     }
+
+    public void setOperator(Operator op ){
+
+        this.operator = op;
+    }
+
+    public Operator getOperator(){
+
+        return operator;
+    }
+
+    public void setBill(Bill bill ){
+
+        this.bill = bill;
+    }
+
+    public Bill getBill(){
+
+        return bill;
+    }
+
+ 
+	public int getID() {
+		return id;
+	}
+	
+	
+	public String getName() {
+		return name;
+	}
+	
+
+	public int getTotalSpentTalkingTime() {
+		return totalSpentTalkingTime;
+	}
+
+	
+	public int getTotalSentMessages() {
+		return totalSentMessages;
+	}
+
+	public double getTotalInternetUsage() {
+		return totalInternetUsage;
+	}
+
 }

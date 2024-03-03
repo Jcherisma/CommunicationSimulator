@@ -20,16 +20,29 @@ public class Bill {
   double limitingAmount;
   double currentDebt = 0;
 
+  private double totalMoneySpent;
+
   public Bill(double limitingAmount ){
-    this.limitingAmount = limitingAmount;
-  }
+    try {
+			if(limitingAmount < 0.0)
+				throw new IllegalArgumentException("Limiting amount must be non-negative.");
+			
+			this.limitingAmount = limitingAmount;
+			currentDebt = 0.0;
+			
+			totalMoneySpent = 0.0;
+			
+		} catch(final IllegalArgumentException e) {
+			System.out.println(e.getMessage());
+		} 
+   }
     
   public boolean checkIfExceedAmount(double amount){
 
-    if(amount > limitingAmount){
-      return false;
+    if(amount + currentDebt > limitingAmount){
+      return true;
     } else {
-    return true;
+    return false;
     }
   }
 
@@ -42,13 +55,23 @@ public class Bill {
  */
   public void pay(double amount){
 
+    if(amount < currentDebt) {
+			currentDebt -= amount;
+			totalMoneySpent += amount;
+		}
+		else {
+			totalMoneySpent += currentDebt;
+			currentDebt = 0.0;		// There is no negative debt.
+		}
+
   }
 
 /*
  * To Do:
  */
   public void changeTheLimit(double amount){
-
+    if(amount >= currentDebt)
+    limitingAmount = amount;
 
   }
 
@@ -59,4 +82,8 @@ public class Bill {
   public double getCurrentDebt() {
     return this.currentDebt;
   }
+
+  public double getTotalMoneySpent() {
+		return totalMoneySpent;
+	}
 }
